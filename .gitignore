@@ -212,4 +212,4 @@ $RECYCLE.BIN/
 
 # End of https://www.toptal.com/developers/gitignore/api/yarn,node,macos,vscode,windows,linux
 
-server/js/*.js
+server/public/js/*.js

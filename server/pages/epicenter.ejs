@@ -9,9 +9,12 @@
 </head>
 
 <body>
-  <p>
-    Hello
-  </p>
+  <div class="epiData" id="epiData" style="display: none;">
+    <%= JSON.stringify(epiData) %>
+  </div>
+  <div class="map" id="map">
+    <script src="/js/epicenter.bundle.js"></script>
+  </div>
 </body>
 
 </html>

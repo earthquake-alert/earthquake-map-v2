@@ -11,7 +11,7 @@ module.exports = {
       'epicenter': './core/epicenter/main.ts'
     },
     output: {
-        path: path.join(__dirname, "./server/js"),
+        path: path.join(__dirname, "./server/public/js"),
         filename: '[name].bundle.js'
     },
     module: {

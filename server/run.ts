@@ -2,12 +2,11 @@ import path from 'path'
 import express from 'express'
 
 const port = process.env.PORT || 3000
-
 const app: express.Express = express()
 
 app.set('view engine', 'ejs')
-app.use('/public', express.static(path.join(__dirname, 'server', 'public')))
-app.use('/js', express.static(path.join(__dirname, 'server', 'js')))
+
+app.use(express.static(path.join(__dirname, 'public')))
 
 // This page is no response.
 app.get('/', (req, res) => {
@@ -15,19 +14,20 @@ app.get('/', (req, res) => {
 })
 
 app.get('/report', (req, res) => {
-  res.send('report')
+  res.render('../server/pages/report.ejs')
 })
 
 app.get('/information', (req, res) => {
-  res.send('information')
+  res.render('../server/pages/information.ejs')
 })
 
 app.get('/tsunami', (req, res) => {
-  res.send('tsunami')
+  res.render('../server/pages/tsunami.ejs')
 })
 
 app.get('/epicenter', (req, res) => {
-  res.render('../server/pages/epicenter.ejs')
+  const epiData = {name: "hoge"}
+  res.render('../server/pages/epicenter.ejs', {epiData: epiData})
 })
 
 app.listen(port, () => {

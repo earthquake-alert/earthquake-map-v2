@@ -30,7 +30,7 @@
     "ts-node": "^9.1.1"
   },
   "scripts": {
-    "start": "ts-node server/run.ts",
+    "start": "ts-node --project server/tsconfig.json server/run.ts",
     "build": "webpack"
   }
 }

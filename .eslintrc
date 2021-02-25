@@ -30,6 +30,7 @@
   },
   "rules": {
     // sort import
+    "import/no-unresolved": "off",
     "sort-imports": 0,
     "import/order": [
       2,

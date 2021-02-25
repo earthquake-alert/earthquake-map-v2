@@ -1,7 +1,9 @@
 const path = require('path')
 
+const env = process.env.TYPE || 'development'
+
 module.exports = {
-    mode: 'development',
+    mode: env,
     entry: {
       'seismic_intensity_scale': './core/seismic_intensity_scale/main.ts',
       'seismicity_of_earthquake_source': './core/seismicity_of_earthquake_source/main.ts',

@@ -1,6 +1,11 @@
 {
   "devDependencies": {
+    "@types/eslint": "^7.2.6",
+    "@typescript-eslint/eslint-plugin": "^4.15.2",
+    "@typescript-eslint/parser": "^4.15.2",
     "css-loader": "^5.0.2",
+    "eslint": "^7.20.0",
+    "eslint-plugin-import": "^2.22.1",
     "style-loader": "^2.0.0",
     "ts-loader": "^8.0.17",
     "tsc": "^1.20150623.0",

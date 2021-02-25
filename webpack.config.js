@@ -1,26 +1,34 @@
-const path = require('path');
+const path = require('path')
 
 module.exports = {
     mode: 'development',
-    entry: './src/index.tsx',
+    entry: {
+      'seismic_intensity_scale': './core/seismic_intensity_scale/main.ts',
+      'seismicity_of_earthquake_source': './core/seismicity_of_earthquake_source/main.ts',
+      'tsunami_information': './core/tsunami_information/main.ts',
+      'epicenter': './core/epicenter/main.ts'
+    },
     output: {
-        path: path.join(__dirname, "./dist"),
-        filename: 'bundle.js'
+        path: path.join(__dirname, "./server/js"),
+        filename: '[name].bundle.js'
     },
     module: {
-        rules: [
-          {
-            test: /\.tsx?$/,
-            use: 'ts-loader',
-            exclude: /node_modules/
-          },
-          {
-            test: /\.css$/,
-            loader: "ts-loader"
-          }
-        ]
-      },
-    resolve: {
-        extensions: ['.ts', '.tsx', '.js']
-    }
+      rules: [
+        {
+          test: /\.ts?$/,
+          use: 'ts-loader',
+          exclude: /node_modules/
+        },
+        {
+          test: /\.css$/,
+          use: [
+            'style-loader',
+            'css-loader'
+          ]
+        }
+      ]
+    },
+  resolve: {
+      extensions: ['.ts', '.js']
+  }
 }

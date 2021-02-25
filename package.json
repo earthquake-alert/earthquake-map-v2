@@ -1,4 +1,13 @@
 {
+  "name": "earthquake-map-v2",
+  "version": "1.0.0",
+  "description": "This repository is render map for earthquakes.",
+  "main": "server/run.ts",
+  "author": {
+    "email": "yuto.w51942@gmail.com",
+    "name": "Yuto Watanabe",
+    "url": "https://cateiru.com"
+  },
   "devDependencies": {
     "@types/eslint": "^7.2.6",
     "@typescript-eslint/eslint-plugin": "^4.15.2",
@@ -13,11 +22,11 @@
     "webpack": "^5.24.2",
     "webpack-cli": "^4.5.0"
   },
-  "scripts": {
-    "run": "ts-node server/run.ts",
-    "build": "webpack"
-  },
   "dependencies": {
     "ts-node": "^9.1.1"
+  },
+  "scripts": {
+    "start": "ts-node server/run.ts",
+    "build": "webpack"
   }
 }

@@ -1,3 +1,5 @@
+import map from './map'
+
 function main() {
   const data = document.getElementById('data')?.textContent
 
@@ -5,6 +7,8 @@ function main() {
     const jsonData = JSON.parse(data)
 
     console.log(jsonData)
+
+    map()
   }
 
 }

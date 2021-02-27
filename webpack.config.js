@@ -1,6 +1,9 @@
 const path = require('path')
+require('dotenv').config()
 
 const env = process.env.TYPE || 'development'
+
+console.log(`build mode: ${env}`)
 
 module.exports = {
     mode: env,
@@ -17,8 +20,14 @@ module.exports = {
     module: {
       rules: [
         {
-          test: /\.ts?$/,
-          use: 'ts-loader',
+          test: /\.ts$/,
+          use: {
+            loader: 'ts-loader',
+            options: {
+              transpileOnly: true,
+              configFile: "webpack.tsconfig.json",
+            }
+          },
           exclude: /node_modules/
         },
         {

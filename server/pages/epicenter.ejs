@@ -3,15 +3,24 @@
 
 <head>
   <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" type="text/css" href="/css/global.css">
   <title>Epicenter</title>
 </head>
 
 <body>
-  <div class="epiData" id="epiData" style="display: none;">
-    <%= JSON.stringify(epiData) %>
+  <header class="title-info">
+    <div class="title">
+      <%= title %>
+    </div>
+    <div class="date">
+      <%= date %>
+    </div>
+  </header>
+
+  <div class="data" id="data" style="display: none;">
+    <%= JSON.stringify(data) %>
   </div>
+
   <div class="map" id="map">
     <script src="/js/epicenter.bundle.js"></script>
   </div>

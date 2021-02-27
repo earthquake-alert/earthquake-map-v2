@@ -1,5 +1,5 @@
 function main() {
-  const data = document.getElementById('epiData')?.textContent
+  const data = document.getElementById('data')?.textContent
 
   if (data) {
     const jsonData = JSON.parse(data)

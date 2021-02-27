@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/css/global.css">
+  <title>Tsunami</title>
+</head>
+
+<body>
+  <header class="title-info">
+    <div class="title">
+      <%= title %>
+    </div>
+    <div class="date">
+      <%= date %>
+    </div>
+  </header>
+
+  <div class="data" id="data" style="display: none;">
+    <%= JSON.stringify(data) %>
+  </div>
+
+  <div class="map" id="map">
+    <script src="/js/tsunami_information.bundle.js"></script>
+  </div>
+</body>
+
+</html>

@@ -1,1 +1,0 @@
-# Earthquake map V2

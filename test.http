@@ -1,0 +1,22 @@
+POST http://100.125.206.35:8080/earthquake_info
+Content-Type: application/json
+
+{
+    "epicenter": {
+        "lat": 20.222,
+        "lon": 130.00
+    },
+    "ints": {
+        "int1": [
+            {
+                "lat": 20.222,
+                "lon": 130.00
+            }
+        ]
+    },
+    "title": "震源震度情報"
+}
+
+###
+
+GET http://100.125.206.35:8080/images/icon/1.png

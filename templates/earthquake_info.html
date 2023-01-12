@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" {{- if .Epicenter -}}epicenter="{{.Epicenter}}" {{- end -}} {{- if .Ints -}}ints="{{.Ints}}"{{- end -}} >
+<html lang="en" {{- with .Epicenter }} epicenter={{json .}} {{- end -}} {{- with .Ints }} ints={{json .}} {{- end -}}>
 
 <head>
     <meta charset="UTF-8">
@@ -11,10 +11,10 @@
 <body>
     <header class="data">
         <div class="title">
-            {{.Title}}
+            {{- .Title -}}
         </div>
         <div class="date">
-            発生日時: {{.Date}}
+            発生日時: {{- parseDate .Date -}}
         </div>
     </header>
     <div class="map" id="map"></div>

@@ -3,6 +3,7 @@ package src
 import (
 	"log"
 	"net/http"
+	"text/template"
 	"time"
 
 	"github.com/labstack/echo/v4"
@@ -11,10 +12,26 @@ import (
 	"golang.org/x/net/http2"
 )
 
+type CommonData struct {
+	Date  time.Time `json:"date"`
+	Title string    `json:"title"`
+}
+type PositionData struct {
+	Lat float64 `json:"lat"`
+	Lon float64 `json:"lon"`
+}
+
 func Server() {
 	e := echo.New()
+
+	// テンプレート設定
+	t := &Template{
+		templates: template.Must(template.New("templates").Funcs(Funcmap).ParseGlob("templates/*.html")),
+	}
+	e.Renderer = t
 	e.IPExtractor = echo.ExtractIPFromXFFHeader()
 
+	// ログを出す
 	e.Use(middleware.RequestLoggerWithConfig(middleware.RequestLoggerConfig{
 		LogURI:    true,
 		LogStatus: true,
@@ -44,6 +61,8 @@ func Server() {
 			return nil
 		},
 	}))
+	// `/public`を静的ファイルとして配信する
+	e.Use(middleware.Static("public"))
 
 	Router(e)
 
@@ -61,14 +80,8 @@ func Router(e *echo.Echo) {
 	h := NewHandler()
 
 	e.GET("/", h.RootHandler)
-	e.GET("/earthquake_info", h.EarthquakeInfoHandler)
-	e.GET("/earthquake_report", h.EarthquakeReportHandler)
-	e.GET("/tsunami", h.TsunamiHandler)
 
-	// JS配信用
-	e.GET("/js/earthquake_info", h.EarthquakeInfoJsHandler)
-	e.GET("/js/earthquake_report", h.EarthquakeReportJsHandler)
-	e.GET("/js/tsunami", h.TsunamiJsHandler)
-
-	e.GET("/image", h.EarthquakeIcon)
+	e.POST("/earthquake_info", h.EarthquakeInfoHandler)
+	// e.POST("/earthquake_report", h.EarthquakeReportHandler)
+	// e.POST("/tsunami", h.TsunamiHandler)
 }

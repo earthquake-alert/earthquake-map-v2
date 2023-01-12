@@ -28,5 +28,13 @@ func Router(e *echo.Echo) {
 
 	e.GET("/", h.RootHandler)
 
-	e.GET("", h.RootHandler)
+	e.GET("/earthquake_info", h.EarthquakeInfoHandler)
+	e.GET("/earthquake_report", h.EarthquakeReportHandler)
+	e.GET("/tsunami", h.TsunamiHandler)
+
+	// JS配信用
+	e.GET("/js/earthquake_info", h.EarthquakeInfoJsHandler)
+	e.GET("/js/earthquake_report", h.EarthquakeReportJsHandler)
+	e.GET("/js/tsunami", h.TsunamiJsHandler)
+
 }

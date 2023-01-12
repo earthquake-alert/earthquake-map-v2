@@ -27,7 +27,6 @@ func Router(e *echo.Echo) {
 	h := NewHandler()
 
 	e.GET("/", h.RootHandler)
-
 	e.GET("/earthquake_info", h.EarthquakeInfoHandler)
 	e.GET("/earthquake_report", h.EarthquakeReportHandler)
 	e.GET("/tsunami", h.TsunamiHandler)

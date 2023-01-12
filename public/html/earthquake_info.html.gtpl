@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" test="hoge">
+<html lang="en" {{- if .Epicenter -}}epicenter="{{.Epicenter}}" {{- end -}} {{- if .Ints -}}ints="{{.Ints}}"{{- end -}} >
 
 <head>
     <meta charset="UTF-8">

@@ -34,10 +34,6 @@ func (h *Handler) TsunamiJsHandler(c echo.Context) error {
 
 // HTMLの配信
 
-func (h *Handler) EarthquakeInfoHandler(c echo.Context) error {
-	return c.File("public/html/earthquake_info.html")
-}
-
 func (h *Handler) EarthquakeReportHandler(c echo.Context) error {
 	return c.File("public/html/earthquake_report.html")
 }

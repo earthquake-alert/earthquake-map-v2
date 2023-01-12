@@ -14,7 +14,8 @@ Content-Type: application/json
             }
         ]
     },
-    "title": "震源震度情報"
+    "title": "震源震度情報",
+    "date": "2006-01-02T15:04:05Z"
 }
 
 ###

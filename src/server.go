@@ -81,7 +81,7 @@ func Router(e *echo.Echo) {
 
 	e.GET("/", h.RootHandler)
 
-	e.POST("/earthquake_info", h.EarthquakeInfoHandler)
+	e.GET("/earthquake_info", h.EarthquakeInfoHandler)
 	// e.POST("/earthquake_report", h.EarthquakeReportHandler)
 	// e.POST("/tsunami", h.TsunamiHandler)
 }

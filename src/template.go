@@ -32,5 +32,5 @@ func ToJson(d any) string {
 	if err != nil {
 		panic(err)
 	}
-	return fmt.Sprintf("%#v", string(s))
+	return string(s)
 }

@@ -1,6 +1,7 @@
 package src
 
 import (
+	"encoding/json"
 	"net/http"
 
 	"github.com/labstack/echo/v4"
@@ -23,9 +24,14 @@ type EarthquakeInfoForm struct {
 }
 
 func (h *Handler) EarthquakeInfoHandler(c echo.Context) error {
+	rowDate := c.QueryParam("data")
+	if rowDate == "" {
+		return echo.NewHTTPError(http.StatusBadRequest, "data param is not defined")
+	}
+
 	data := new(EarthquakeInfoForm)
-	if err := c.Bind(data); err != nil {
-		return err
+	if err := json.Unmarshal([]byte(rowDate), data); err != nil {
+		return echo.NewHTTPError(http.StatusBadRequest, err)
 	}
 
 	return c.Render(http.StatusOK, "earthquake_info.html", data)

@@ -1,0 +1,17 @@
+{
+    "extends": "./node_modules/gts/",
+    "plugins": [
+        "import"
+    ],
+    "rules": {
+        "sort-imports": 0,
+        "import/order": [
+            2,
+            {
+                "alphabetize": {
+                    "order": "asc"
+                }
+            }
+        ]
+    }
+}

@@ -27,4 +27,6 @@ func Router(e *echo.Echo) {
 	h := NewHandler()
 
 	e.GET("/", h.RootHandler)
+
+	e.GET("", h.RootHandler)
 }

@@ -35,10 +35,10 @@ export class MapBuilder {
     this.controls.push(new OverviewMap(o));
   }
 
-  public generate(): MapOptions {
+  public generate(targetElement: string | HTMLElement): MapOptions {
     return {
       controls: control.defaults().extend(this.controls),
-      target: 'map',
+      target: targetElement,
       layers: this.layers,
       view: this.view,
     };
@@ -49,8 +49,12 @@ export class MapBuilder {
  * マップを描画する
  *
  * @param builder - OpenLayersのマップ設定
+ * @param target - ターゲットのクラス名かHTML要素
  * @returns マップオブジェクト
  */
-export function renderMap(builder: MapBuilder): Map {
-  return new Map(builder.generate());
+export function renderMap(
+  builder: MapBuilder,
+  target: string | HTMLElement
+): Map {
+  return new Map(builder.generate(target));
 }

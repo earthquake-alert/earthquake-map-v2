@@ -1,6 +1,7 @@
 package src
 
 import (
+	"fmt"
 	"net/http"
 
 	"github.com/labstack/echo/v4"
@@ -43,4 +44,10 @@ func (h *Handler) EarthquakeReportHandler(c echo.Context) error {
 
 func (h *Handler) TsunamiHandler(c echo.Context) error {
 	return c.File("public/html/tsunami.html")
+}
+
+// 震度アイコン
+func (h *Handler) EarthquakeIcon(c echo.Context) error {
+	intensity := c.QueryParam("file")
+	return c.File(fmt.Sprintf("public/images/icon/%s.png", intensity))
 }

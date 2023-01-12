@@ -36,4 +36,5 @@ func Router(e *echo.Echo) {
 	e.GET("/js/earthquake_report", h.EarthquakeReportJsHandler)
 	e.GET("/js/tsunami", h.TsunamiJsHandler)
 
+	e.GET("/image", h.EarthquakeIcon)
 }
